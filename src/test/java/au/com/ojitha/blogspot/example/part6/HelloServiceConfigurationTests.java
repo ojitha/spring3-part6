@@ -32,7 +32,7 @@ public class HelloServiceConfigurationTests {
 	
 	@Test
 	public void testSayHello(){
-		helloWorld.sayHello(this.message);
+		assertNotNull(helloWorld.sayHello(this.message));
 	}
 	
 }
