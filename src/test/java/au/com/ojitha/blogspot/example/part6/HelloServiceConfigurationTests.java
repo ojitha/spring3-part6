@@ -2,8 +2,7 @@ package au.com.ojitha.blogspot.example.part6;
 
 import static org.junit.Assert.assertNotNull;
 
-import au.com.ojitha.blogspot.example.part6.Service;
-
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +11,28 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-public class ExampleConfigurationTests {
+public class HelloServiceConfigurationTests {
 	
-	@Autowired
-	private Service service;
+	Message message;
 
+	@Autowired
+	private Hello helloWorld;
+
+	@Before
+	public void setup(){
+		message = new Message();
+		message.setMessage("Ojitha");
+	}
+	
 	@Test
 	public void testSimpleProperties() throws Exception {
-		assertNotNull(service);
+		assertNotNull(helloWorld);
+		
+	}
+	
+	@Test
+	public void testSayHello(){
+		helloWorld.sayHello(this.message);
 	}
 	
 }
